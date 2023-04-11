@@ -1,0 +1,2 @@
+allure-jenkins-plugin:latest
+emailext-template:latest
