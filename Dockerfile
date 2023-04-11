@@ -49,6 +49,12 @@ RUN echo `ls /usr/local/bin/`
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/plugins.txt
 
+# groovy初始化jenkins
+COPY custom.groovy /usr/share/jenkins/ref/init.groovy.d/custom.groovy
+
+# 修改jenkins的配置状态为已配置
+RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
+
 # 构建命令
 # docker build -f Dockerfile -t myjenkins:1.0.0 .
 
