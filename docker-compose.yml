@@ -12,7 +12,10 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
+      # chown -R 1000 data
       - ./data/:/var/jenkins_home/
       #- /usr/bin/docker:/usr/bin/docker
       #- /var/run/docker.sock:/var/run/docker.sock
       #- /etc/docker/daemon.json:/etc/docker/daemon.json
+volumes:
+  jenkins_home:

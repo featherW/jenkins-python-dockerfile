@@ -38,14 +38,14 @@ COPY allure-commandline-2.21.0.tgz /opt/
 RUN cd /opt/ \
     && tar -xvzf allure-commandline-2.21.0.tgz  && rm -f allure-commandline-2.21.0.tgz
 RUN ln -s /opt/allure-2.21.0/bin/allure /usr/bin/allure
+RUN chown -R jenkins:jenkins /opt/allure-2.21.0/
 
 # 安装python依赖包
 RUN pip install pytest \
     && pip install allure-pytest
 
-# 安装jenkins插件
 USER jenkins
-RUN echo `ls /usr/local/bin/`
+# 安装jenkins插件
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/plugins.txt
 
