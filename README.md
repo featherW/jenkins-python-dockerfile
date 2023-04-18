@@ -15,7 +15,7 @@
 /init-groovys/credentials_password.groovy文件中EMAIL_NAME和PASSWORD换成实际的邮箱和授权码
 </br>
 ## groovy脚本代码环境搭建
-1、下载jenkins源码：[jenkins源码](https://github.com/jenkinsci/docker/blob/master/README.md)</br>
+1、下载jenkins源码：[jenkins源码](https://github.com/jenkinsci/jenkins)</br>
 2、修改pom.xml，增加插件maven源</br>
 ``` xml
     <dependency>
