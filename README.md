@@ -38,4 +38,6 @@
        <version>1.5</version>
     </dependency>
 ```
-调试：可以在jenkins的控制台中执行
+调试：可以在jenkins的控制台中执行</br>
+4、jenkins java api文档</br>
+[api文档](https://javadoc.jenkins.io)
