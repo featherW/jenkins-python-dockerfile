@@ -82,7 +82,7 @@ extmailServer.setDefaultSuffix(EMAIL_SUFFIX)
 extmailServer.setDefaultSubject(EMAIL_SUBJECT)
 extmailServer.setDefaultBody(EMAIL_BODY)
 
-instance.save()
+
 
 // E-mail Notification
 def mailServer = instance.getDescriptor("hudson.tasks.Mailer")
@@ -91,3 +91,5 @@ mailServer.setSmtpPort(EMAIL_PORT)
 mailServer.setDefaultSuffix(EMAIL_SUFFIX)
 mailServer.setSmtpAuth(EMAIL_NAME, EMAIL_PASSWORD)
 mailServer.setReplyToAddress(EMAIL_NAME)
+
+instance.save()
