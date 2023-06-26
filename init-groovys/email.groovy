@@ -5,6 +5,7 @@ import jenkins.model.JenkinsLocationConfiguration
 
 
 def EMAIL_NAME= "test_jenkins2023@163.com"
+def EMAIL_PASSWORD = "authorization token"
 def EMAIL_SUFFIX = "@163.com"
 def EMAIL_PORT = "465"
 def EMAIL_SERVER = "smtp.163.com"
@@ -39,11 +40,11 @@ def EMAIL_BODY = """
                     <li>build number: \${BUILD_NUMBER}</li>    
                     <li>trigger cause: \${CAUSE}</li>    
                     <li>build status: \${BUILD_STATUS}</li>    
-                    <li>build log: <a href=" " rel="external nofollow" >\${BUILD_URL}console</a ></li>    
+                    <li>build log: <a href="\${BUILD_URL}console" rel="external nofollow" >\${BUILD_URL}console</a ></li>    
                     <li>build url: <a href="\${BUILD_URL}" rel="external nofollow" >\${BUILD_URL}</a ></li>    
                     <li>work list: <a href="\${PROJECT_URL}ws" rel="external nofollow" >\${PROJECT_URL}ws</a ></li>    
                     <li>project url: <a href="\${PROJECT_URL}" rel="external nofollow" >\${PROJECT_URL}</a ></li>
-                    <li>test report: <a href="\${PROJECT_URL}HTML_20Report" rel="external nofollow" >\${PROJECT_URL}HTML_20Report</a ></li>        
+                    <li>test report: <a href="\${PROJECT_URL}allure" rel="external nofollow" >\${PROJECT_URL}allure</a ></li>        
                 </ul>    
 
 <h4><font color="#0B610B">failure case</font></h4>
@@ -82,3 +83,11 @@ extmailServer.setDefaultSubject(EMAIL_SUBJECT)
 extmailServer.setDefaultBody(EMAIL_BODY)
 
 instance.save()
+
+// E-mail Notification
+def mailServer = instance.getDescriptor("hudson.tasks.Mailer")
+mailServer.setSmtpHost(EMAIL_SERVER)
+mailServer.setSmtpPort(EMAIL_PORT)
+mailServer.setDefaultSuffix(EMAIL_SUFFIX)
+mailServer.setSmtpAuth(EMAIL_NAME, EMAIL_PASSWORD)
+mailServer.setReplyToAddress(EMAIL_NAME)
