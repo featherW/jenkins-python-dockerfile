@@ -12,7 +12,7 @@
 5、创建了默认任务，该任务定时执行、生成报告、发送邮件</br>
 </br>
 ## 如果想要直接跑起来，需要改哪些东西
-init-groovys/credentials_password.groovy文件中EMAIL_NAME和PASSWORD换成实际的邮箱和授权码
+init-groovys/credentials_password.groovy文件中EMAIL_NAME和PASSWORD换成实际的邮箱和授权码</br>
 init-groovys/email.groovy文件中的EMAIL_NAME和EMAIL_PASSWORD换成实际的邮箱和授权码
 </br>
 ## groovy脚本代码环境搭建
