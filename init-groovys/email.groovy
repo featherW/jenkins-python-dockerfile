@@ -1,11 +1,13 @@
-import hudson.plugins.emailext.ExtendedEmailPublisherDescriptor
 import hudson.plugins.emailext.MailAccount
-import hudson.tasks.Mailer
-import hudson.tasks.SMTPAuthentication
 import jenkins.model.Jenkins
 import jenkins.model.JenkinsLocationConfiguration
 
-def JENKINS_URL = "https://" + InetAddress.localHost.hostAddress + ":18080/"
+URL connection = new URL("http://checkip.amazonaws.com/");
+URLConnection con = connection.openConnection();
+String str = null;
+BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+str = reader.readLine();
+def JENKINS_URL = "http://" + str + ":18080/"
 def EMAIL_NAME= "test_jenkins2023@163.com"
 def EMAIL_SUFFIX = "@163.com"
 def EMAIL_PORT = "465"
@@ -83,6 +85,7 @@ extmailServer.setDefaultContentType(CONTENT_TYPE)
 extmailServer.setDefaultSuffix(EMAIL_SUFFIX)
 extmailServer.setDefaultSubject(EMAIL_SUBJECT)
 extmailServer.setDefaultBody(EMAIL_BODY)
+
 
 instance.save()
 instance.reload()
