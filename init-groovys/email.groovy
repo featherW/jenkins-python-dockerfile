@@ -95,3 +95,4 @@ mailServer.setAuthentication(authentication)
 mailServer.setReplyToAddress(EMAIL_NAME)
 
 instance.save()
+instance.reload()
