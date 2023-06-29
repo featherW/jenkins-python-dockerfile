@@ -1,5 +1,7 @@
 import hudson.plugins.emailext.ExtendedEmailPublisherDescriptor
 import hudson.plugins.emailext.MailAccount
+import hudson.tasks.Mailer
+import hudson.tasks.SMTPAuthentication
 import jenkins.model.Jenkins
 import jenkins.model.JenkinsLocationConfiguration
 
@@ -83,13 +85,13 @@ extmailServer.setDefaultSubject(EMAIL_SUBJECT)
 extmailServer.setDefaultBody(EMAIL_BODY)
 
 
-
 // E-mail Notification
-def mailServer = instance.getDescriptor("hudson.tasks.Mailer")
+Mailer.DescriptorImpl mailServer = instance.getDescriptor("hudson.tasks.Mailer")
 mailServer.setSmtpHost(EMAIL_SERVER)
 mailServer.setSmtpPort(EMAIL_PORT)
 mailServer.setDefaultSuffix(EMAIL_SUFFIX)
-mailServer.setSmtpAuth(EMAIL_NAME, EMAIL_PASSWORD)
+SMTPAuthentication authentication = new SMTPAuthentication(EMAIL_NAME, EMAIL_PASSWORD)
+mailServer.setAuthentication(authentication)
 mailServer.setReplyToAddress(EMAIL_NAME)
 
 instance.save()
