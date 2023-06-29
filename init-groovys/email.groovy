@@ -5,7 +5,7 @@ import hudson.tasks.SMTPAuthentication
 import jenkins.model.Jenkins
 import jenkins.model.JenkinsLocationConfiguration
 
-def JENKINS_URL = ""
+def JENKINS_URL = "https://" + InetAddress.localHost.hostAddress + ":18080/"
 def EMAIL_NAME= "test_jenkins2023@163.com"
 def EMAIL_SUFFIX = "@163.com"
 def EMAIL_PORT = "465"
