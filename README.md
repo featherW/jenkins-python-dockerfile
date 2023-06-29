@@ -13,7 +13,8 @@
 </br>
 ## 如果想要直接跑起来，需要改哪些东西
 init-groovys/credentials_password.groovy文件中EMAIL_NAME和PASSWORD换成实际的邮箱和授权码</br>
-init-groovys/email.groovy文件中的EMAIL_NAME和EMAIL_PASSWORD换成实际的邮箱和授权码
+init-groovys/email.groovy文件中的EMAIL_NAME换成实际的邮箱</br>
+init-groovys/email.groovy文件中JENKINS_URL换成实际的jenkins域名
 </br>
 ## groovy脚本代码环境搭建
 1、下载jenkins源码：[jenkins源码](https://github.com/jenkinsci/jenkins)</br>
