@@ -7,7 +7,6 @@ import jenkins.model.JenkinsLocationConfiguration
 
 def JENKINS_URL = ""
 def EMAIL_NAME= "test_jenkins2023@163.com"
-def EMAIL_PASSWORD = "authorization token"
 def EMAIL_SUFFIX = "@163.com"
 def EMAIL_PORT = "465"
 def EMAIL_SERVER = "smtp.163.com"
@@ -84,16 +83,6 @@ extmailServer.setDefaultContentType(CONTENT_TYPE)
 extmailServer.setDefaultSuffix(EMAIL_SUFFIX)
 extmailServer.setDefaultSubject(EMAIL_SUBJECT)
 extmailServer.setDefaultBody(EMAIL_BODY)
-
-
-// E-mail Notification
-Mailer.DescriptorImpl mailServer = instance.getDescriptor("hudson.tasks.Mailer")
-mailServer.setSmtpHost(EMAIL_SERVER)
-mailServer.setSmtpPort(EMAIL_PORT)
-mailServer.setDefaultSuffix(EMAIL_SUFFIX)
-SMTPAuthentication authentication = new SMTPAuthentication(EMAIL_NAME, EMAIL_PASSWORD)
-mailServer.setAuthentication(authentication)
-mailServer.setReplyToAddress(EMAIL_NAME)
 
 instance.save()
 instance.reload()
