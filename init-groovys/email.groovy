@@ -5,7 +5,7 @@ import hudson.tasks.SMTPAuthentication
 import jenkins.model.Jenkins
 import jenkins.model.JenkinsLocationConfiguration
 
-
+def JENKINS_URL = ""
 def EMAIL_NAME= "test_jenkins2023@163.com"
 def EMAIL_PASSWORD = "authorization token"
 def EMAIL_SUFFIX = "@163.com"
@@ -66,6 +66,7 @@ change list: <a href="\${PROJECT_URL}changes" rel="external nofollow" >\${PROJEC
 // Manage Jenkins->Configure System->Jenkins Location
 def jenkinsLocationConfiguration = JenkinsLocationConfiguration.get()
 jenkinsLocationConfiguration.setAdminAddress(EMAIL_NAME)
+jenkinsLocationConfiguration.setUrl(JENKINS_URL)
 jenkinsLocationConfiguration.save()
 
 // Extended E-mail Notification
