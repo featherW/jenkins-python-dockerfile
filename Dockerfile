@@ -58,6 +58,11 @@ COPY sample.py /var/
 # groovy初始化jenkins
 COPY init-groovys/* /usr/share/jenkins/ref/init.groovy.d/
 
+# jenkins root url
+# host的值为域名，port的值为jenkins的端口，默认http协议，如果要用https协议需要修改init-groovys/email.groovy中JENKINS_URL
+ENV host localhost
+ENV port 18080
+
 
 # 构建命令
 # docker build -f Dockerfile -t myjenkins:1.0.0 .
