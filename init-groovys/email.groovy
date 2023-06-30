@@ -2,12 +2,7 @@ import hudson.plugins.emailext.MailAccount
 import jenkins.model.Jenkins
 import jenkins.model.JenkinsLocationConfiguration
 
-URL connection = new URL("http://checkip.amazonaws.com/");
-URLConnection con = connection.openConnection();
-String str = null;
-BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-str = reader.readLine();
-def JENKINS_URL = "http://" + str + ":18080/"
+def JENKINS_URL = "http://" + System.getenv("host") + ":" + System.getenv("port") + "/"
 def EMAIL_NAME= "test_jenkins2023@163.com"
 def EMAIL_SUFFIX = "@163.com"
 def EMAIL_PORT = "465"
