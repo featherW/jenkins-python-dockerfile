@@ -10,11 +10,13 @@
 3、配置了allure报告</br>
 4、配置了邮件模板</br>
 5、创建了默认任务，该任务定时执行、生成报告、发送邮件</br>
+6、配置了jenkins默认的url为http://localhost:18080</br>
 </br>
 ## 如果想要直接跑起来，需要改哪些东西
 init-groovys/credentials_password.groovy文件中EMAIL_NAME和PASSWORD换成实际的邮箱和授权码</br>
 init-groovys/email.groovy文件中的EMAIL_NAME换成实际的邮箱</br>
-init-groovys/email.groovy文件中JENKINS_URL换成实际的jenkins地址
+init-groovys/email.groovy文件中JENKINS_URL修改实际的http协议或https协议</br>
+Dockerfile中host和port改为实际的域名和端口</br>
 </br>
 ## groovy脚本代码环境搭建
 1、下载jenkins源码：[jenkins源码](https://github.com/jenkinsci/jenkins)</br>
